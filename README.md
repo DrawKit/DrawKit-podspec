@@ -1,4 +1,4 @@
 DrawKit-podspec
 ===============
 
-Pre-built DrawKit frameworks for CocoaPod users.
+Pre-built [DrawKit](https://github.com/DrawKit/DrawKit) frameworks for [CocoaPod](http://cocoapods.org) users.

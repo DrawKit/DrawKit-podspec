@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
@@ -18,8 +16,8 @@ This is a non-affine transformation which is why it's not a subclass of NSAffine
 can be used in a similar way.
 */
 @interface DKDistortionTransform : NSObject <NSCoding, NSCopying> {
-    NSPoint m_q[4];
-    BOOL m_inverted;
+	NSPoint m_q[4];
+	BOOL m_inverted;
 }
 
 + (DKDistortionTransform*)transformWithInitialRect:(NSRect)rect;

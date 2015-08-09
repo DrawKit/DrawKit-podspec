@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Foundation/Foundation.h>
 #import "GCUndoManager.h"
@@ -39,16 +37,16 @@ and close the group at mouse up without creating bogus stack states.
 
 @interface DKUndoManager : NSUndoManager {
 @private
-    BOOL mCoalescingEnabled;
-    BOOL mEmulate105Behaviour;
-    id mSkipTargetRef;
-    id mLastTargetRef;
-    NSUInteger mChangeCount;
-    NSUInteger mChangePerGroupCount;
-    BOOL mInPrivateMethod;
-    BOOL mSkipTask;
-    SEL mLastSelector;
-    id mTarget;
+	BOOL mCoalescingEnabled;
+	BOOL mEmulate105Behaviour;
+	id mSkipTargetRef;
+	id mLastTargetRef;
+	NSUInteger mChangeCount;
+	NSUInteger mChangePerGroupCount;
+	BOOL mInPrivateMethod;
+	BOOL mSkipTask;
+	SEL mLastSelector;
+	id mTarget;
 }
 
 - (BOOL)enableUndoTaskCoalescing:(BOOL)enable;

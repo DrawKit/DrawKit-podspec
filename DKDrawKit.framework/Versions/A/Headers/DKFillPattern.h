@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKPathDecorator.h"
 
@@ -17,16 +15,16 @@ just sets up the path clipping and calls the rendering method for each location 
 */
 @interface DKFillPattern : DKPathDecorator <NSCoding, NSCopying> {
 @private
-    CGFloat m_altYOffset;
-    CGFloat m_altXOffset;
-    CGFloat m_angle;
-    CGFloat m_objectAngle;
-    CGFloat m_motifAngle;
-    CGFloat mMotifAngleRandomness;
-    BOOL m_angleRelativeToObject;
-    BOOL m_motifAngleRelativeToPattern;
-    BOOL m_noClippedElements;
-    NSMutableArray* mMotifAngleRandCache;
+	CGFloat m_altYOffset;
+	CGFloat m_altXOffset;
+	CGFloat m_angle;
+	CGFloat m_objectAngle;
+	CGFloat m_motifAngle;
+	CGFloat mMotifAngleRandomness;
+	BOOL m_angleRelativeToObject;
+	BOOL m_motifAngleRelativeToPattern;
+	BOOL m_noClippedElements;
+	NSMutableArray* mMotifAngleRandCache;
 }
 
 /**  */

@@ -1,30 +1,28 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawablePath.h"
 
 // shape types this class supports:
 
 typedef enum {
-    kDKArcPathOpenArc = 0,
-    kDKArcPathWedge,
-    kDKArcPathCircle
+	kDKArcPathOpenArc = 0,
+	kDKArcPathWedge,
+	kDKArcPathCircle
 } DKArcPathType;
 
 // the class:
 
 @interface DKArcPath : DKDrawablePath <NSCopying, NSCoding> {
 @private
-    CGFloat mRadius;
-    CGFloat mStartAngle;
-    CGFloat mEndAngle;
-    NSPoint mCentre;
-    DKArcPathType mArcType;
+	CGFloat mRadius;
+	CGFloat mStartAngle;
+	CGFloat mEndAngle;
+	NSPoint mCentre;
+	DKArcPathType mArcType;
 }
 
 - (void)setRadius:(CGFloat)rad;
@@ -55,11 +53,11 @@ typedef enum {
 // they are consecutive, continuous, and ordered thus:
 
 enum {
-    kDKArcPathRadiusPart = 2,
-    kDKArcPathStartAnglePart,
-    kDKArcPathEndAnglePart,
-    kDKArcPathRotationKnobPart,
-    kDKArcPathCentrePointPart,
+	kDKArcPathRadiusPart = 2,
+	kDKArcPathStartAnglePart,
+	kDKArcPathEndAnglePart,
+	kDKArcPathRotationKnobPart,
+	kDKArcPathCentrePointPart,
 };
 
 // the simple creation mode can be set (rather than, say, kDKPathCreateModeArcSegment) to create arcs in a one-step process
@@ -68,5 +66,5 @@ enum {
 // than the 2-stage arc creation process.
 
 enum {
-    kDKArcSimpleCreationMode = 7
+	kDKArcSimpleCreationMode = 7
 };

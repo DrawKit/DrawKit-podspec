@@ -1,18 +1,16 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawableShape.h"
 
 // option constants for crop or scale image
 
 typedef enum {
-    kDKImageScaleToPath = 0,
-    kDKImageCropToPath = 1
+	kDKImageScaleToPath = 0,
+	kDKImageCropToPath = 1
 } DKImageCroppingOptions;
 
 // the class
@@ -37,16 +35,16 @@ A hotspot is added to allow the user to drag the image offset position around.
 */
 @interface DKImageShape : DKDrawableShape <NSCoding, NSCopying> {
 @private
-    NSString* mImageKey; // key in the image manager holding original data for this image
-    NSImage* m_image; // the image the shape displays
-    CGFloat m_opacity; // its opacity
-    CGFloat m_imageScale; // its scale (currently ignored, but set to 1.0)
-    NSPoint m_imageOffset; // the offset of the image within the bounds
-    BOOL m_drawnOnTop; // YES if image drawn after style, NO for before
-    NSCompositingOperation m_op; // the Quartz compositing mode to apply
-    DKImageCroppingOptions mImageCropping; // whether the image is scaled or cropped to the bounds
-    NSInteger mImageOffsetPartcode; // the partcode of the image offset hotspot
-    NSData* mOriginalImageData; // original image data (shared with image manager)
+	NSString* mImageKey; // key in the image manager holding original data for this image
+	NSImage* m_image; // the image the shape displays
+	CGFloat m_opacity; // its opacity
+	CGFloat m_imageScale; // its scale (currently ignored, but set to 1.0)
+	NSPoint m_imageOffset; // the offset of the image within the bounds
+	BOOL m_drawnOnTop; // YES if image drawn after style, NO for before
+	NSCompositingOperation m_op; // the Quartz compositing mode to apply
+	DKImageCroppingOptions mImageCropping; // whether the image is scaled or cropped to the bounds
+	NSInteger mImageOffsetPartcode; // the partcode of the image offset hotspot
+	NSData* mOriginalImageData; // original image data (shared with image manager)
 }
 
 + (DKStyle*)imageShapeDefaultStyle;

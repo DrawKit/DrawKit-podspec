@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 #import "DKCommonTypes.h"
@@ -30,24 +28,27 @@ features. However, locked layers will never receive mouse event calls so general
 As layers are retained by the drawing, this does not retain the drawing.
 
 By definition the bounds of the layer is the same as the bounds of the drawing.
+ 
+DKLayer does not implement a dragging destination but some subclasses do. NSDraggingDestination is declared to
+indicate likely handling of drag and drop operations by a layer instance.
 */
-@interface DKLayer : NSObject <NSCoding, DKKnobOwner, NSUserInterfaceValidations> {
+@interface DKLayer : NSObject <NSCoding, NSDraggingDestination, NSUserInterfaceValidations, DKKnobOwner> {
 @private
-    NSString* m_name; // layer name
-    NSColor* m_selectionColour; // colour preference for selection highlights in this layer
-    DKKnob* m_knobs; // knobs helper object if set - normally nil to defer to drawing
-    BOOL m_knobsAdjustToScale; // YES if knobs allow for the view scale
-    BOOL m_visible; // is the layer visible?
-    BOOL m_locked; // is the layer locked?
-    BOOL m_printed; // is the layer drawn when printing?
-    BOOL mRulerMarkersEnabled; // YES to pass ruler marker updates to enclosing group, NO to ignore
-    GCInfoFloater* m_infoWindow; // info window instance that can be used by client objects as they wish
-    DKLayerGroup* m_groupRef; // group we are contained by (or drawing)
-    BOOL m_clipToInterior; // YES to clip drawing to inside the interior region
-    NSMutableDictionary* mUserInfo; // metadata
-    NSUInteger mReserved[3]; // unused
-    NSString* mLayerUniqueKey; // unique ID for the layer
-    CGFloat mAlpha; // alpha value applied to layer as a whole
+	NSString* m_name; // layer name
+	NSColor* m_selectionColour; // colour preference for selection highlights in this layer
+	DKKnob* m_knobs; // knobs helper object if set - normally nil to defer to drawing
+	BOOL m_knobsAdjustToScale; // YES if knobs allow for the view scale
+	BOOL m_visible; // is the layer visible?
+	BOOL m_locked; // is the layer locked?
+	BOOL m_printed; // is the layer drawn when printing?
+	BOOL mRulerMarkersEnabled; // YES to pass ruler marker updates to enclosing group, NO to ignore
+	GCInfoFloater* m_infoWindow; // info window instance that can be used by client objects as they wish
+	DKLayerGroup* m_groupRef; // group we are contained by (or drawing)
+	BOOL m_clipToInterior; // YES to clip drawing to inside the interior region
+	NSMutableDictionary* mUserInfo; // metadata
+	NSUInteger mReserved[3]; // unused
+	NSString* mLayerUniqueKey; // unique ID for the layer
+	CGFloat mAlpha; // alpha value applied to layer as a whole
 }
 
 /** @brief Allows a list of colours to be set for supplying the selection colours

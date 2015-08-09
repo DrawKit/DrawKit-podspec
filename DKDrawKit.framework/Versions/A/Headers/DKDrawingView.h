@@ -1,19 +1,17 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "GCZoomView.h"
 
 @class DKDrawing, DKLayer, DKViewController;
 
 typedef enum {
-    DKCropMarksNone = 0,
-    DKCropMarksCorners = 1,
-    DKCropMarksEdges = 2
+	DKCropMarksNone = 0,
+	DKCropMarksCorners = 1,
+	DKCropMarksEdges = 2
 } DKCropMarkKind;
 
 /** @brief DKDrawingView is the visible "front end" for the DKDrawing architecture.
@@ -34,17 +32,17 @@ typedef enum {
 */
 @interface DKDrawingView : GCZoomView {
 @private
-    NSTextView* m_textEditViewRef; /**< if valid, set to text editing view */
-    BOOL mTextEditViewInUse; /**< YES if editor in use */
-    BOOL mPageBreaksVisible; /**< YES if page breaks are drawn in the view */
-    NSPrintInfo* mPrintInfo; /**< print info used to draw page breaks and paginate, etc */
-    DKCropMarkKind mCropMarkKind; /**< what kind of crop marks to add to the printed output */
-    DKViewController* mControllerRef; /**< the view's controller (weak ref) */
-    DKDrawing* mAutoDrawing; /**< the drawing we created automatically (if we did so - typically nil for doc-based apps) */
-    BOOL m_didCreateDrawing; /**< YES if the window built the back end itself */
-    NSRect mEditorFrame; /**< tracks current frame of text editor */
-    NSTimeInterval mLastMouseDragTime; /**< time of last mouseDragged: event */
-    NSDictionary* mRulerMarkersDict; /**< tracks ruler markers */
+	NSTextView* m_textEditViewRef; /**< if valid, set to text editing view */
+	BOOL mTextEditViewInUse; /**< YES if editor in use */
+	BOOL mPageBreaksVisible; /**< YES if page breaks are drawn in the view */
+	NSPrintInfo* mPrintInfo; /**< print info used to draw page breaks and paginate, etc */
+	DKCropMarkKind mCropMarkKind; /**< what kind of crop marks to add to the printed output */
+	DKViewController* mControllerRef; /**< the view's controller (weak ref) */
+	DKDrawing* mAutoDrawing; /**< the drawing we created automatically (if we did so - typically nil for doc-based apps) */
+	BOOL m_didCreateDrawing; /**< YES if the window built the back end itself */
+	NSRect mEditorFrame; /**< tracks current frame of text editor */
+	NSTimeInterval mLastMouseDragTime; /**< time of last mouseDragged: event */
+	NSDictionary* mRulerMarkersDict; /**< tracks ruler markers */
 }
 
 /** @brief Return the view currently drawing

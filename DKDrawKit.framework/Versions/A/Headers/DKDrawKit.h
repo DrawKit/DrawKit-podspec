@@ -1,10 +1,7 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- @licence LGPL3
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @licence MPL2; see LICENSE.txt
  */
 
 #import "DKDrawingView.h"
@@ -27,7 +24,6 @@
 #import "DKObjectOwnerLayer.h"
 #import "DKObjectDrawingLayer.h"
 #import "DKObjectDrawingLayer+Alignment.h"
-#import "DKObjectDrawingLayer+BooleanOps.h"
 #import "DKObjectDrawingLayer+Duplication.h"
 
 #import "DKGridLayer.h"
@@ -41,7 +37,6 @@
 #import "DKReshapableShape.h"
 #import "DKDrawableShape+Hotspots.h"
 #import "DKImageShape.h"
-#import "DKImageShape+Vectorization.h"
 #import "DKShapeGroup.h"
 #import "DKDrawablePath.h"
 #import "DKTextShape.h"
@@ -91,6 +86,7 @@
 #import "DKDistortionTransform.h"
 #import "DKCategoryManager.h"
 #import "DKCommonTypes.h"
+#import "DKHandle.h"
 #import "DKKnob.h"
 #import "DKRouteFinder.h"
 
@@ -103,7 +99,6 @@
 #import "GCZoomView.h"
 #import "DKUndoManager.h"
 #import "NSBezierPath+Editing.h"
-#import "NSBezierPath+GPC.h"
 #import "NSBezierPath+Geometry.h"
 #import "NSBezierPath+Text.h"
 #import "NSDictionary+DeepCopy.h"

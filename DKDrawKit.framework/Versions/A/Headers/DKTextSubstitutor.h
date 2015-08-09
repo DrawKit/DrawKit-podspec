@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
@@ -20,9 +18,9 @@ This objects abstracts the text substitution task used by text adornments, et. a
  are the digits 0-9 which extract the nth word from the original data, and the flags U, L and C which convert the data to upper, lower and capitalized strings respectively.
 */
 @interface DKTextSubstitutor : NSObject <NSCoding> {
-    NSAttributedString* mMasterString;
-    NSMutableArray* mKeys;
-    BOOL mNeedsToEvaluate;
+	NSAttributedString* mMasterString;
+	NSMutableArray* mKeys;
+	BOOL mNeedsToEvaluate;
 }
 
 + (NSString*)delimiterString;
@@ -55,11 +53,11 @@ extern NSString* kDKTextSubstitutorNewStringNotification;
 #define PADDING_DELIMITER '#'
 
 @interface DKTextSubstitutionKey : NSObject {
-    NSString* mKey;
-    NSRange mRange;
-    NSArray* mSubKeys;
-    NSUInteger mPadLength;
-    NSString* mPadCharacter;
+	NSString* mKey;
+	NSRange mRange;
+	NSArray* mSubKeys;
+	NSUInteger mPadLength;
+	NSString* mPadCharacter;
 }
 
 + (NSCharacterSet*)validSubkeysCharacterSet;

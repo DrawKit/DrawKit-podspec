@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
@@ -46,12 +44,12 @@ completed except for page breaks. Tool controllers for example can draw selectio
 */
 @interface DKViewController : NSObject {
 @private
-    NSView* mViewRef; // weak ref to the view that is associated with this
-    DKDrawing* mDrawingRef; // weak ref to the drawing that owns this
-    BOOL m_autoLayerSelect; // YES to allow mouse to activate layers automatically
-    BOOL mEnableDKMenus; // YES to enable all standard contextual menus provided by DK.
+	NSView* mViewRef; // weak ref to the view that is associated with this
+	DKDrawing* mDrawingRef; // weak ref to the drawing that owns this
+	BOOL m_autoLayerSelect; // YES to allow mouse to activate layers automatically
+	BOOL mEnableDKMenus; // YES to enable all standard contextual menus provided by DK.
 @protected
-    NSEvent* mDragEvent; // cached drag event for autoscroll to use
+	NSEvent* mDragEvent; // cached drag event for autoscroll to use
 }
 
 // designated initializer

@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKLayer.h"
 #import "DKObjectStorageProtocol.h"
@@ -15,10 +13,10 @@
 // caching options
 
 typedef enum {
-    kDKLayerCacheNone = 0, // no caching
-    kDKLayerCacheUsingPDF = (1 << 0), // layer is cached in a PDF Image Rep
-    kDKLayerCacheUsingCGLayer = (1 << 1), // layer is cached in a CGLayer bitmap
-    kDKLayerCacheObjectOutlines = (1 << 2) // objects are drawn using a simple outline stroke only
+	kDKLayerCacheNone = 0, // no caching
+	kDKLayerCacheUsingPDF = (1 << 0), // layer is cached in a PDF Image Rep
+	kDKLayerCacheUsingCGLayer = (1 << 1), // layer is cached in a CGLayer bitmap
+	kDKLayerCacheObjectOutlines = (1 << 2) // objects are drawn using a simple outline stroke only
 } DKLayerCacheOption;
 
 // the class
@@ -48,22 +46,22 @@ The cache is only used for screen drawing.
 NOTE: PDF caching has been shown to be actually slower when there are many objects, espcially with advanced storage in use. This is
 because it's an all-or-nothing rendering proposition which direct drawing of a layer's objects is not.
 */
-@interface DKObjectOwnerLayer : DKLayer <NSCoding, DKDrawableContainer> {
+@interface DKObjectOwnerLayer : DKLayer <NSCoding, NSDraggingDestination, DKDrawableContainer> {
 @private
-    id<DKObjectStorage> mStorage; // the object storage
-    NSPoint m_pasteAnchor; // used when recording the paste/duplication offset
-    BOOL m_allowEditing; // YES to allow editing of objects, NO to prevent
-    BOOL m_allowSnapToObjects; // YES to let snapping look for other objects
-    DKDrawableObject* mNewObjectPending; // temporary object being created - is drawn and handled as a normal object but can be deleted without undo
-    DKLayerCacheOption mLayerCachingOption; // see constants defined above
-    NSRect mCacheBounds; // the bounds rect of the cached layer or PDF rep - used to accurately position the cache when drawn
-    BOOL m_inDragOp; // YES if a drag is happening over the layer
-    NSSize m_pasteOffset; // distance to offset a pasted object
-    BOOL m_recordPasteOffset; // set to YES following a paste, and NO following a drag. When YES, paste offset is recorded.
-    NSInteger mPasteboardLastChange; // last change count recorded during a paste
-    NSInteger mPasteCount; // number of repeated paste operations since last new paste
+	id<DKObjectStorage> mStorage; // the object storage
+	NSPoint m_pasteAnchor; // used when recording the paste/duplication offset
+	BOOL m_allowEditing; // YES to allow editing of objects, NO to prevent
+	BOOL m_allowSnapToObjects; // YES to let snapping look for other objects
+	DKDrawableObject* mNewObjectPending; // temporary object being created - is drawn and handled as a normal object but can be deleted without undo
+	DKLayerCacheOption mLayerCachingOption; // see constants defined above
+	NSRect mCacheBounds; // the bounds rect of the cached layer or PDF rep - used to accurately position the cache when drawn
+	BOOL m_inDragOp; // YES if a drag is happening over the layer
+	NSSize m_pasteOffset; // distance to offset a pasted object
+	BOOL m_recordPasteOffset; // set to YES following a paste, and NO following a drag. When YES, paste offset is recorded.
+	NSInteger mPasteboardLastChange; // last change count recorded during a paste
+	NSInteger mPasteCount; // number of repeated paste operations since last new paste
 @protected
-    BOOL mShowStorageDebugging; // if YES, draws the debugging path for the storage on top (debugging feature only)
+	BOOL mShowStorageDebugging; // if YES, draws the debugging path for the storage on top (debugging feature only)
 }
 
 + (void)setDefaultLayerCacheOption:(DKLayerCacheOption)option;

@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKLayer.h"
 
@@ -25,14 +23,14 @@ the shift key down.
 */
 @interface DKGuideLayer : DKLayer <NSCoding> {
 @private
-    NSMutableArray* m_hGuides; // the list of horizontal guides
-    NSMutableArray* m_vGuides; // the list of vertical guides
-    BOOL m_snapToGrid; // YES if snap to grid is enabled
-    BOOL m_showDragInfo; // YES if dragging a guide displays the floating info window
-    DKGuide* m_dragGuideRef; // the current guide being dragged
-    CGFloat m_snapTolerance; // the current snap tolerance value
-    NSRect mGuideDeletionZone; // guides dragged outside this rect are deleted
-    BOOL mDrawGuidesInClipView; // if YES, guides are extended to be drawn in the clip view of an enclosing scroller
+	NSMutableArray* m_hGuides; // the list of horizontal guides
+	NSMutableArray* m_vGuides; // the list of vertical guides
+	BOOL m_snapToGrid; // YES if snap to grid is enabled
+	BOOL m_showDragInfo; // YES if dragging a guide displays the floating info window
+	DKGuide* m_dragGuideRef; // the current guide being dragged
+	CGFloat m_snapTolerance; // the current snap tolerance value
+	NSRect mGuideDeletionZone; // guides dragged outside this rect are deleted
+	BOOL mDrawGuidesInClipView; // if YES, guides are extended to be drawn in the clip view of an enclosing scroller
 }
 
 // default snapping tolerance:
@@ -305,9 +303,9 @@ the shift key down.
 
 @interface DKGuide : NSObject <NSCoding> {
 @private
-    CGFloat m_position;
-    BOOL m_isVertical;
-    NSColor* m_colour;
+	CGFloat m_position;
+	BOOL m_isVertical;
+	NSColor* m_colour;
 }
 
 /** @brief Sets the position of the guide

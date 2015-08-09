@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 #import "DKLinearObjectStorage.h"
@@ -14,17 +12,17 @@
 /// node types
 
 typedef enum {
-    kNodeHorizontal,
-    kNodeVertical,
-    kNodeLeaf
+	kNodeHorizontal,
+	kNodeVertical,
+	kNodeLeaf
 } DKLeafType;
 
 /// tree operations
 
 typedef enum {
-    kDKOperationInsert,
-    kDKOperationDelete,
-    kDKOperationAccumulate
+	kDKOperationInsert,
+	kDKOperationDelete,
+	kDKOperationAccumulate
 } DKBSPOperation;
 
 /** @brief The actual storage object.
@@ -35,9 +33,9 @@ typedef enum {
 */
 @interface DKBSPObjectStorage : DKLinearObjectStorage {
 @private
-    DKBSPIndexTree* mTree;
-    NSUInteger mTreeDepth;
-    NSUInteger mLastItemCount;
+	DKBSPIndexTree* mTree;
+	NSUInteger mTreeDepth;
+	NSUInteger mLastItemCount;
 }
 
 - (void)setTreeDepth:(NSUInteger)aDepth;
@@ -59,13 +57,13 @@ typedef enum {
 */
 @interface DKBSPIndexTree : NSObject {
 @protected
-    NSMutableArray* mLeaves;
-    NSMutableArray* mNodes;
-    NSMutableIndexSet* mResults;
-    NSSize mCanvasSize;
-    DKBSPOperation mOp;
-    NSUInteger mOpIndex;
-    NSBezierPath* mDebugPath;
+	NSMutableArray* mLeaves;
+	NSMutableArray* mNodes;
+	NSMutableIndexSet* mResults;
+	NSSize mCanvasSize;
+	DKBSPOperation mOp;
+	NSUInteger mOpIndex;
+	NSBezierPath* mDebugPath;
 }
 
 + (Class)leafClass;

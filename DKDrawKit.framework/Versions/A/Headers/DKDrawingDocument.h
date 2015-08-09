@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
@@ -31,8 +29,8 @@ like this are one easy way to do it, but not the only way.
 */
 @interface DKDrawingDocument : NSDocument {
 @private
-    IBOutlet DKDrawingView* mMainDrawingView;
-    DKDrawing* m_drawing;
+	IBOutlet DKDrawingView* mMainDrawingView;
+	DKDrawing* m_drawing;
 }
 
 /** @brief Returns an undo manager that can be shared by multiple documents

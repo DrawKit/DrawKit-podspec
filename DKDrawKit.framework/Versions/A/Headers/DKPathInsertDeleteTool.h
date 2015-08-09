@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawingTool.h"
 
@@ -13,9 +11,9 @@
 // modes of operation for this tool:
 
 typedef enum {
-    kDKPathDeletePointMode = 0,
-    kDKPathInsertPointMode = 1,
-    kDKPathDeleteElementMode = 2
+	kDKPathDeletePointMode = 0,
+	kDKPathInsertPointMode = 1,
+	kDKPathDeleteElementMode = 2
 } DKPathToolMode;
 
 /** @brief This tool is able to insert or delete on-path points from a path.
@@ -24,9 +22,9 @@ This tool is able to insert or delete on-path points from a path. If applied to 
 */
 @interface DKPathInsertDeleteTool : DKDrawingTool {
 @private
-    DKPathToolMode m_mode;
-    BOOL m_performedAction;
-    DKDrawablePath* mTargetRef;
+	DKPathToolMode m_mode;
+	BOOL m_performedAction;
+	DKDrawablePath* mTargetRef;
 }
 
 + (DKDrawingTool*)pathDeletionTool;

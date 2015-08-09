@@ -1,24 +1,22 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
 // internal undo manager state is one of these constants
 
 typedef enum {
-    kGCUndoCollectingTasks = 0,
-    kGCUndoIsUndoing = 1,
-    kGCUndoIsRedoing = 2
+	kGCUndoCollectingTasks = 0,
+	kGCUndoIsUndoing = 1,
+	kGCUndoIsRedoing = 2
 } GCUndoManagerState;
 
 typedef enum {
-    kGCCoalesceLastTask = 0,
-    kGCCoalesceAllMatchingTasks = 1
+	kGCCoalesceLastTask = 0,
+	kGCCoalesceAllMatchingTasks = 1
 } GCUndoTaskCoalescingKind;
 
 @class GCUndoGroup, GCUndoManagerProxy, GCConcreteUndoTask;
@@ -53,23 +51,23 @@ The point of this is to provide an undo manager whose source is openly readable,
 */
 @interface GCUndoManager : NSObject {
 @private
-    NSMutableArray* mUndoStack; // list of groups making up the undo stack
-    NSMutableArray* mRedoStack; // list of groups making up the redo stack
-    NSArray* mRunLoopModes; // current run loop modes, used by automatic grouping by event
-    id mNextTarget; // next prepared target
-    GCUndoGroup* mOpenGroupRef; // internal reference to current open group
-    GCUndoManagerProxy* mProxy; // the proxy object returned by -prepareWithInvocationTarget: if proxying is used
-    NSInteger mGroupLevel; // current grouping level, 0 = no groups open
-    NSUInteger mLevelsOfUndo; // how many undo actions are added before old ones are discarded, 0 = unlimited
-    NSInteger mEnableLevel; // enable ref count, 0 = enabled.
-    NSUInteger mChangeCount; // count of changes (submitting any task increments this)
-    GCUndoManagerState mState; // current undo manager state
-    GCUndoTaskCoalescingKind mCoalKind; // coalescing behaviour - match on emost recent task or all tasks in group
-    BOOL mGroupsByEvent; // YES if automatic grouping occurs for the main loop event cycle
-    BOOL mCoalescing; // YES if consecutive tasks are coalesced
-    BOOL mAutoDeleteEmptyGroups; // YES if empty groups are automatically removed from the stack
-    BOOL mRetainsTargets; // YES if invocation targets are retained
-    BOOL mIsRemovingTargets; // YES during stack clean-up to prevent re-entrancy
+	NSMutableArray* mUndoStack; // list of groups making up the undo stack
+	NSMutableArray* mRedoStack; // list of groups making up the redo stack
+	NSArray* mRunLoopModes; // current run loop modes, used by automatic grouping by event
+	id mNextTarget; // next prepared target
+	GCUndoGroup* mOpenGroupRef; // internal reference to current open group
+	GCUndoManagerProxy* mProxy; // the proxy object returned by -prepareWithInvocationTarget: if proxying is used
+	NSInteger mGroupLevel; // current grouping level, 0 = no groups open
+	NSUInteger mLevelsOfUndo; // how many undo actions are added before old ones are discarded, 0 = unlimited
+	NSInteger mEnableLevel; // enable ref count, 0 = enabled.
+	NSUInteger mChangeCount; // count of changes (submitting any task increments this)
+	GCUndoManagerState mState; // current undo manager state
+	GCUndoTaskCoalescingKind mCoalKind; // coalescing behaviour - match on emost recent task or all tasks in group
+	BOOL mGroupsByEvent; // YES if automatic grouping occurs for the main loop event cycle
+	BOOL mCoalescing; // YES if consecutive tasks are coalesced
+	BOOL mAutoDeleteEmptyGroups; // YES if empty groups are automatically removed from the stack
+	BOOL mRetainsTargets; // YES if invocation targets are retained
+	BOOL mIsRemovingTargets; // YES during stack clean-up to prevent re-entrancy
 }
 
 // NSUndoManager compatible API
@@ -203,7 +201,7 @@ The point of this is to provide an undo manager whose source is openly readable,
 
 @interface GCUndoTask : NSObject {
 @private
-    GCUndoGroup* mGroupRef;
+	GCUndoGroup* mGroupRef;
 }
 
 - (GCUndoGroup*)parentGroup;
@@ -220,8 +218,8 @@ The point of this is to provide an undo manager whose source is openly readable,
 
 @interface GCUndoGroup : GCUndoTask {
 @private
-    NSString* mActionName;
-    NSMutableArray* mTasks;
+	NSString* mActionName;
+	NSMutableArray* mTasks;
 }
 
 - (void)addTask:(GCUndoTask*)aTask;
@@ -244,9 +242,9 @@ The point of this is to provide an undo manager whose source is openly readable,
 
 @interface GCConcreteUndoTask : GCUndoTask {
 @private
-    NSInvocation* mInvocation;
-    id mTarget;
-    BOOL mTargetRetained;
+	NSInvocation* mInvocation;
+	id mTarget;
+	BOOL mTargetRetained;
 }
 
 - (id)initWithInvocation:(NSInvocation*)inv;
@@ -261,15 +259,15 @@ The point of this is to provide an undo manager whose source is openly readable,
 
 #ifndef THROW_IF_FALSE
 #define THROW_IF_FALSE(condition, string)                                     \
-    if (!(condition)) {                                                       \
-        [NSException raise:NSInternalInconsistencyException format:(string)]; \
-    }
+	if (!(condition)) {                                                       \
+		[NSException raise:NSInternalInconsistencyException format:(string)]; \
+	}
 #define THROW_IF_FALSE1(condition, string, param1)                                      \
-    if (!(condition)) {                                                                 \
-        [NSException raise:NSInternalInconsistencyException format:(string), (param1)]; \
-    }
+	if (!(condition)) {                                                                 \
+		[NSException raise:NSInternalInconsistencyException format:(string), (param1)]; \
+	}
 #define THROW_IF_FALSE2(condition, string, param1, param2)                                        \
-    if (!(condition)) {                                                                           \
-        [NSException raise:NSInternalInconsistencyException format:(string), (param1), (param2)]; \
-    }
+	if (!(condition)) {                                                                           \
+		[NSException raise:NSInternalInconsistencyException format:(string), (param1), (param2)]; \
+	}
 #endif

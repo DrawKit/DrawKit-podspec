@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawablePath.h"
 #import "DKCommonTypes.h"
@@ -17,9 +15,9 @@ Very similar to a DKTextShape but based on a path and defaulting to text-on-a-pa
 */
 @interface DKTextPath : DKDrawablePath <NSCopying, NSCoding> {
 @private
-    DKTextAdornment* mTextAdornment;
-    NSTextView* mEditorRef;
-    BOOL mIsSettingStyle;
+	DKTextAdornment* mTextAdornment;
+	NSTextView* mEditorRef;
+	BOOL mIsSettingStyle;
 }
 
 // convenience constructors:

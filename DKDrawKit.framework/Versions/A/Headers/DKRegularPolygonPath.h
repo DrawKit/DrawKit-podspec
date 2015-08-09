@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawablePath.h"
 
@@ -19,14 +17,14 @@ a star shape (not used if the inner radius is -ve).
 */
 @interface DKRegularPolygonPath : DKDrawablePath <NSCopying, NSCoding> {
 @private
-    NSInteger mVertices; // # of vertices
-    NSPoint mCentre; // centre (location)
-    CGFloat mOuterRadius; // radius
-    CGFloat mInnerRadius; // inner radius of star-type shapes
-    CGFloat mTipSpread; // spread of tips
-    CGFloat mValleySpread; // spread of star "valleys"
-    CGFloat mAngle; // overall rotation angle
-    BOOL mShowSpreadControls; // YES to display spread controls as knobs
+	NSInteger mVertices; // # of vertices
+	NSPoint mCentre; // centre (location)
+	CGFloat mOuterRadius; // radius
+	CGFloat mInnerRadius; // inner radius of star-type shapes
+	CGFloat mTipSpread; // spread of tips
+	CGFloat mValleySpread; // spread of star "valleys"
+	CGFloat mAngle; // overall rotation angle
+	BOOL mShowSpreadControls; // YES to display spread controls as knobs
 }
 
 - (void)setNumberOfSides:(NSInteger)sides;
@@ -57,13 +55,13 @@ a star shape (not used if the inner radius is -ve).
 // partcodes - partcodes for each vertex are sequentially numbered from 3 upwards
 
 enum {
-    kDKRegularPolyCentrePart = 1,
-    kDKRegularPolyTipSpreadPart = 2,
-    kDKRegularPolyValleySpreadPart = 3,
-    kDKRegularPolyRotationPart = 4,
-    kDKRegularPolyFirstVertexPart = 5 // must be odd
+	kDKRegularPolyCentrePart = 1,
+	kDKRegularPolyTipSpreadPart = 2,
+	kDKRegularPolyValleySpreadPart = 3,
+	kDKRegularPolyRotationPart = 4,
+	kDKRegularPolyFirstVertexPart = 5 // must be odd
 };
 
 enum {
-    kDKRegularPolyCreationMode = 7
+	kDKRegularPolyCreationMode = 7
 };

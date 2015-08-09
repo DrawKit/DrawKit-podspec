@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
@@ -16,10 +14,10 @@ This object is archived and added to the pasteboard when copying items within DK
  Presently this merely supplies the object count and a list of classes present and a count of each, but may be extended later
 */
 @interface DKPasteboardInfo : NSObject <NSCoding> {
-    NSInteger mCount;
-    NSDictionary* mClassInfo;
-    NSRect mBoundingRect;
-    NSString* mOriginatingLayerKey;
+	NSInteger mCount;
+	NSDictionary* mClassInfo;
+	NSRect mBoundingRect;
+	NSString* mOriginatingLayerKey;
 }
 
 + (DKPasteboardInfo*)pasteboardInfoForObjects:(NSArray*)objects;

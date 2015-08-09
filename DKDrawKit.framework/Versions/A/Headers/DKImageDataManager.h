@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
@@ -19,9 +17,9 @@ The purpose of this class is to allow images to be archived much more efficientl
 */
 @interface DKImageDataManager : NSObject <NSCoding> {
 @private
-    NSMutableDictionary* mRepository;
-    NSMutableDictionary* mHashList;
-    NSMutableDictionary* mKeyUsage;
+	NSMutableDictionary* mRepository;
+	NSMutableDictionary* mHashList;
+	NSMutableDictionary* mKeyUsage;
 }
 
 - (NSData*)imageDataForKey:(NSString*)key;

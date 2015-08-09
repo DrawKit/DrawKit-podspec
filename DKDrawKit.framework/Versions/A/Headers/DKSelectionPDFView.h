@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawingView.h"
 
@@ -21,7 +19,7 @@ these objects are never used to make a visible view. Their only function is to a
 @class DKObjectOwnerLayer, DKShapeGroup;
 
 @interface DKLayerPDFView : DKDrawingView {
-    DKLayer* mLayerRef;
+	DKLayer* mLayerRef;
 }
 
 - (id)initWithFrame:(NSRect)frame withLayer:(DKLayer*)aLayer;
@@ -29,7 +27,7 @@ these objects are never used to make a visible view. Their only function is to a
 @end
 
 @interface DKDrawablePDFView : NSView {
-    DKDrawableObject* mObjectRef;
+	DKDrawableObject* mObjectRef;
 }
 
 - (id)initWithFrame:(NSRect)frame object:(DKDrawableObject*)obj;

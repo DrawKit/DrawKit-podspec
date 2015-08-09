@@ -1,41 +1,39 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKObjectDrawingLayer.h"
 
 @class DKGridLayer;
 
 enum {
-    kDKAlignmentLeftEdge = 0,
-    kDKAlignmentTopEdge = 1,
-    kDKAlignmentRightEdge = 2,
-    kDKAlignmentBottomEdge = 3,
-    kDKAlignmentVerticalCentre = 4,
-    kDKAlignmentHorizontalCentre = 5,
-    kDKAlignmentVerticalDistribution = 6,
-    kDKAlignmentHorizontalDistribution = 7,
-    kDKAlignmentVSpaceDistribution = 8,
-    kDKAlignmentHSpaceDistribution = 9,
-    kDKAlignmentAlignLeftEdge = (1 << kDKAlignmentLeftEdge),
-    kDKAlignmentAlignTopEdge = (1 << kDKAlignmentTopEdge),
-    kDKAlignmentAlignRightEdge = (1 << kDKAlignmentRightEdge),
-    kDKAlignmentAlignBottomEdge = (1 << kDKAlignmentBottomEdge),
-    kDKAlignmentAlignVerticalCentre = (1 << kDKAlignmentVerticalCentre),
-    kDKAlignmentAlignHorizontalCentre = (1 << kDKAlignmentHorizontalCentre),
-    kDKAlignmentAlignVDistribution = (1 << kDKAlignmentVerticalDistribution),
-    kDKAlignmentAlignHDistribution = (1 << kDKAlignmentHorizontalDistribution),
-    kDKAlignmentAlignVSpaceDistribution = (1 << kDKAlignmentVSpaceDistribution),
-    kDKAlignmentAlignHSpaceDistribution = (1 << kDKAlignmentHSpaceDistribution),
-    kDKAlignmentAlignNone = 0,
-    kDKAlignmentAlignColocate = kDKAlignmentAlignVerticalCentre | kDKAlignmentAlignHorizontalCentre,
-    kDKAlignmentHorizontalAlignMask = kDKAlignmentAlignLeftEdge | kDKAlignmentAlignRightEdge | kDKAlignmentAlignHorizontalCentre | kDKAlignmentAlignHDistribution | kDKAlignmentAlignHSpaceDistribution,
-    kDKAlignmentVerticalAlignMask = kDKAlignmentAlignTopEdge | kDKAlignmentAlignBottomEdge | kDKAlignmentAlignVerticalCentre | kDKAlignmentAlignVDistribution | kDKAlignmentAlignVSpaceDistribution,
-    kDKAlignmentDistributionMask = kDKAlignmentAlignVDistribution | kDKAlignmentAlignHDistribution | kDKAlignmentAlignVSpaceDistribution | kDKAlignmentAlignHSpaceDistribution
+	kDKAlignmentLeftEdge = 0,
+	kDKAlignmentTopEdge = 1,
+	kDKAlignmentRightEdge = 2,
+	kDKAlignmentBottomEdge = 3,
+	kDKAlignmentVerticalCentre = 4,
+	kDKAlignmentHorizontalCentre = 5,
+	kDKAlignmentVerticalDistribution = 6,
+	kDKAlignmentHorizontalDistribution = 7,
+	kDKAlignmentVSpaceDistribution = 8,
+	kDKAlignmentHSpaceDistribution = 9,
+	kDKAlignmentAlignLeftEdge = (1 << kDKAlignmentLeftEdge),
+	kDKAlignmentAlignTopEdge = (1 << kDKAlignmentTopEdge),
+	kDKAlignmentAlignRightEdge = (1 << kDKAlignmentRightEdge),
+	kDKAlignmentAlignBottomEdge = (1 << kDKAlignmentBottomEdge),
+	kDKAlignmentAlignVerticalCentre = (1 << kDKAlignmentVerticalCentre),
+	kDKAlignmentAlignHorizontalCentre = (1 << kDKAlignmentHorizontalCentre),
+	kDKAlignmentAlignVDistribution = (1 << kDKAlignmentVerticalDistribution),
+	kDKAlignmentAlignHDistribution = (1 << kDKAlignmentHorizontalDistribution),
+	kDKAlignmentAlignVSpaceDistribution = (1 << kDKAlignmentVSpaceDistribution),
+	kDKAlignmentAlignHSpaceDistribution = (1 << kDKAlignmentHSpaceDistribution),
+	kDKAlignmentAlignNone = 0,
+	kDKAlignmentAlignColocate = kDKAlignmentAlignVerticalCentre | kDKAlignmentAlignHorizontalCentre,
+	kDKAlignmentHorizontalAlignMask = kDKAlignmentAlignLeftEdge | kDKAlignmentAlignRightEdge | kDKAlignmentAlignHorizontalCentre | kDKAlignmentAlignHDistribution | kDKAlignmentAlignHSpaceDistribution,
+	kDKAlignmentVerticalAlignMask = kDKAlignmentAlignTopEdge | kDKAlignmentAlignBottomEdge | kDKAlignmentAlignVerticalCentre | kDKAlignmentAlignVDistribution | kDKAlignmentAlignVSpaceDistribution,
+	kDKAlignmentDistributionMask = kDKAlignmentAlignVDistribution | kDKAlignmentAlignHDistribution | kDKAlignmentAlignVSpaceDistribution | kDKAlignmentAlignHSpaceDistribution
 };
 
 /**

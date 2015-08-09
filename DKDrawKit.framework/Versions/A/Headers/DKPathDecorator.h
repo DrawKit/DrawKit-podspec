@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKRasterizer.h"
 
@@ -19,26 +17,26 @@ This prefers PDF image representations where the image contains one, preserving 
 */
 @interface DKPathDecorator : DKRasterizer <NSCoding, NSCopying> {
 @private
-    NSImage* m_image;
-    NSPDFImageRep* m_pdf;
-    CGFloat m_scale;
-    CGFloat m_interval;
-    CGFloat m_leader;
-    CGFloat m_leadInLength;
-    CGFloat m_leadOutLength;
-    CGFloat m_liloProportion;
-    CGFloat mLateralOffset;
-    CGFloat mWobblyness;
-    CGFloat mScaleRandomness;
-    BOOL mAlternateLateralOffsets;
-    BOOL m_normalToPath;
-    BOOL m_useChainMethod;
-    DKQuartzCache* mDKCache;
-    BOOL m_lowQuality;
+	NSImage* m_image;
+	NSPDFImageRep* m_pdf;
+	CGFloat m_scale;
+	CGFloat m_interval;
+	CGFloat m_leader;
+	CGFloat m_leadInLength;
+	CGFloat m_leadOutLength;
+	CGFloat m_liloProportion;
+	CGFloat mLateralOffset;
+	CGFloat mWobblyness;
+	CGFloat mScaleRandomness;
+	BOOL mAlternateLateralOffsets;
+	BOOL m_normalToPath;
+	BOOL m_useChainMethod;
+	DKQuartzCache* mDKCache;
+	BOOL m_lowQuality;
 @protected
-    NSUInteger mPlacementCount;
-    NSMutableArray* mWobbleCache;
-    NSMutableArray* mScaleRandCache;
+	NSUInteger mPlacementCount;
+	NSMutableArray* mWobbleCache;
+	NSMutableArray* mScaleRandCache;
 }
 
 + (DKPathDecorator*)pathDecoratorWithImage:(NSImage*)image;
@@ -90,7 +88,7 @@ This prefers PDF image representations where the image contains one, preserving 
 // clipping values:
 
 enum {
-    kDKPathDecoratorClippingNone = 0,
-    kDKPathDecoratorClipOutsidePath = 1,
-    kDKPathDecoratorClipInsidePath = 2
+	kDKPathDecoratorClippingNone = 0,
+	kDKPathDecoratorClipOutsidePath = 1,
+	kDKPathDecoratorClipInsidePath = 2
 };

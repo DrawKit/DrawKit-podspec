@@ -1,19 +1,17 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawableShape.h"
 
 @class DKHotspot;
 
 typedef enum {
-    kDKHotspotStateOff = 0,
-    kDKHotspotStateOn = 1,
-    kDKHotspotStateDisabled = 2
+	kDKHotspotStateOff = 0,
+	kDKHotspotStateOn = 1,
+	kDKHotspotStateDisabled = 2
 } DKHotspotState;
 
 /** @brief A HOTSPOT is an object attached to a shape to provide a direct user-interface for implementing custom actions, etc.
@@ -46,16 +44,16 @@ The appearance of a hotspot is drawn by default by a method of DKKnob.
 @end
 
 enum {
-    kDKHotspotBasePartcode = 32768
+	kDKHotspotBasePartcode = 32768
 };
 
 #pragma mark -
 
 @interface DKHotspot : NSObject <NSCoding, NSCopying> {
-    DKDrawableShape* m_owner;
-    NSInteger m_partcode;
-    NSPoint m_relLoc;
-    id m_delegate;
+	DKDrawableShape* m_owner;
+	NSInteger m_partcode;
+	NSPoint m_relLoc;
+	id m_delegate;
 }
 
 - (id)initHotspotWithOwner:(DKDrawableShape*)shape partcode:(NSInteger)pc delegate:(id)delegate;

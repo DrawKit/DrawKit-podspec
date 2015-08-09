@@ -1,18 +1,16 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
 /** @brief this helper is used when unarchiving to translate class names from older files to their modern equivalents
 */
 @interface DKUnarchivingHelper : NSObject {
-    NSUInteger mCount;
-    NSString* mLastClassnameSubstituted;
+	NSUInteger mCount;
+	NSString* mLastClassnameSubstituted;
 }
 
 - (void)reset;
@@ -27,7 +25,7 @@
 if a substitution would return NSObject, return this insead, which provides a stub for -initWithCoder rather than throwing an exception during dearchiving.
 */
 @interface DKNullObject : NSObject <NSCoding> {
-    NSString* mSubstitutedForClassname;
+	NSString* mSubstitutedForClassname;
 }
 
 - (void)setSubstitutionClassname:(NSString*)classname;

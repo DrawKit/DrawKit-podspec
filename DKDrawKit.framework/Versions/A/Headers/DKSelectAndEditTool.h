@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawingTool.h"
 #import "DKRasterizerProtocol.h"
@@ -14,18 +12,18 @@
 // modes of operation determined by what was hit and what is in the selection
 
 typedef enum {
-    kDKEditToolInvalidMode = 0,
-    kDKEditToolSelectionMode = 1,
-    kDKEditToolEditObjectMode = 2,
-    kDKEditToolMoveObjectsMode = 3
+	kDKEditToolInvalidMode = 0,
+	kDKEditToolSelectionMode = 1,
+	kDKEditToolEditObjectMode = 2,
+	kDKEditToolMoveObjectsMode = 3
 } DKEditToolOperation;
 
 // drag phases passed to dragObjectAsGroup:...
 
 typedef enum {
-    kDKDragMouseDown = 1,
-    kDKDragMouseDragged = 2,
-    kDKDragMouseUp = 3
+	kDKDragMouseDown = 1,
+	kDKDragMouseDragged = 2,
+	kDKDragMouseUp = 3
 } DKEditToolDragPhase;
 
 // tool class
@@ -43,27 +41,27 @@ has a very low opacity should be used - the default style takes the system's hig
 */
 @interface DKSelectAndEditTool : DKDrawingTool <DKRenderable> {
 @private
-    DKEditToolOperation mOperationMode; // what the tool is doing (selecting, editing or moving)
-    NSPoint mAnchorPoint; // the point of the initial mouse down
-    NSPoint mLastPoint; // last point seen
-    NSRect mMarqueeRect; // the selection rect, while selecting
-    DKStyle* mMarqueeStyle; // the appearance style of the marquee
-    NSInteger mPartcode; // current partcode
-    NSString* mUndoAction; // the most recently performed action name
-    BOOL mHideSelectionOnDrag; // YES to hide knobs and jhandles while dragging an object
-    BOOL mAllowMultiObjectDrag; // YES to allow all objects in the selection to be moved at once
-    BOOL mAllowMultiObjectKnobDrag; // YES to allow movement of all selected objects, even when dragging on a control point
-    BOOL mPerformedUndoableTask; // YES if the tool did anything undoable
-    BOOL mAllowDirectCopying; // YES if option-drag copies the objects directly
-    BOOL mDidCopyDragObjects; // YES if objects were copied when dragged
-    BOOL mMouseMoved; // YES if mouse was actually dragged, not just clicked
-    CGFloat mViewScale; // the view's current scale, valid for the renderingPath callback
-    NSUInteger mProxyDragThreshold; // number of objects in the selection where a proxy drag is used; 0 = never do a proxy drag
-    BOOL mInProxyDrag; // YES during a proxy drag
-    NSImage* mProxyDragImage; // the proxy image being dragged
-    NSRect mProxyDragDestRect; // where it is drawn
-    NSArray* mDraggedObjects; // cache of objects being dragged
-    BOOL mWasInLockedObject; // YES if initial mouse down was in a locked object
+	DKEditToolOperation mOperationMode; // what the tool is doing (selecting, editing or moving)
+	NSPoint mAnchorPoint; // the point of the initial mouse down
+	NSPoint mLastPoint; // last point seen
+	NSRect mMarqueeRect; // the selection rect, while selecting
+	DKStyle* mMarqueeStyle; // the appearance style of the marquee
+	NSInteger mPartcode; // current partcode
+	NSString* mUndoAction; // the most recently performed action name
+	BOOL mHideSelectionOnDrag; // YES to hide knobs and jhandles while dragging an object
+	BOOL mAllowMultiObjectDrag; // YES to allow all objects in the selection to be moved at once
+	BOOL mAllowMultiObjectKnobDrag; // YES to allow movement of all selected objects, even when dragging on a control point
+	BOOL mPerformedUndoableTask; // YES if the tool did anything undoable
+	BOOL mAllowDirectCopying; // YES if option-drag copies the objects directly
+	BOOL mDidCopyDragObjects; // YES if objects were copied when dragged
+	BOOL mMouseMoved; // YES if mouse was actually dragged, not just clicked
+	CGFloat mViewScale; // the view's current scale, valid for the renderingPath callback
+	NSUInteger mProxyDragThreshold; // number of objects in the selection where a proxy drag is used; 0 = never do a proxy drag
+	BOOL mInProxyDrag; // YES during a proxy drag
+	NSImage* mProxyDragImage; // the proxy image being dragged
+	NSRect mProxyDragDestRect; // where it is drawn
+	NSArray* mDraggedObjects; // cache of objects being dragged
+	BOOL mWasInLockedObject; // YES if initial mouse down was in a locked object
 }
 
 /** @brief Returns the default style to use for drawing the selection marquee

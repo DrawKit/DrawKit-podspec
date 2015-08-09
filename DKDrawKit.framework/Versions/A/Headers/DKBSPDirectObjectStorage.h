@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 #import "DKBSPObjectStorage.h"
@@ -22,10 +20,10 @@
 */
 @interface DKBSPDirectObjectStorage : DKLinearObjectStorage {
 @private
-    DKBSPDirectTree* mTree;
-    NSUInteger mTreeDepth;
-    NSUInteger mLastItemCount;
-    BOOL mAutoRebuild;
+	DKBSPDirectTree* mTree;
+	NSUInteger mTreeDepth;
+	NSUInteger mLastItemCount;
+	BOOL mAutoRebuild;
 }
 
 - (void)setTreeDepth:(NSUInteger)aDepth;
@@ -40,11 +38,11 @@
 
 @interface DKBSPDirectTree : DKBSPIndexTree {
 @public
-    id<DKStorableObject> mObj;
-    NSMutableArray* mFoundObjects;
-    NSUInteger mObjectCount;
-    NSView* mViewRef;
-    NSRect mRect;
+	id<DKStorableObject> mObj;
+	NSMutableArray* mFoundObjects;
+	NSUInteger mObjectCount;
+	NSView* mViewRef;
+	NSRect mRect;
 }
 
 - (void)insertItem:(id<DKStorableObject>)obj withRect:(NSRect)rect;

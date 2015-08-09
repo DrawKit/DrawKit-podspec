@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKRastGroup.h"
 
@@ -15,9 +13,9 @@
  allows us to leverage all sorts of imaging code to extend the range of available styles and effects.
 */
 @interface DKCIFilterRastGroup : DKRastGroup <NSCoding, NSCopying> {
-    NSString* m_filter;
-    NSDictionary* m_arguments;
-    NSImage* m_cache;
+	NSString* m_filter;
+	NSDictionary* m_arguments;
+	NSImage* m_cache;
 }
 
 + (DKCIFilterRastGroup*)effectGroupWithFilter:(NSString*)filter;

@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKRasterizer.h"
 
@@ -23,20 +21,20 @@ doesn't change the cache.
 */
 @interface DKHatching : DKRasterizer <NSCoding, NSCopying> {
 @private
-    NSBezierPath* m_cache;
-    NSBezierPath* mRoughenedCache;
-    NSColor* m_hatchColour;
-    DKStrokeDash* m_hatchDash;
-    NSLineCapStyle m_cap;
-    NSLineJoinStyle m_join;
-    CGFloat m_leadIn;
-    CGFloat m_spacing;
-    CGFloat m_angle;
-    CGFloat m_lineWidth;
-    BOOL m_angleRelativeToObject;
-    BOOL mRoughenStrokes;
-    CGFloat mRoughness;
-    CGFloat mWobblyness;
+	NSBezierPath* m_cache;
+	NSBezierPath* mRoughenedCache;
+	NSColor* m_hatchColour;
+	DKStrokeDash* m_hatchDash;
+	NSLineCapStyle m_cap;
+	NSLineJoinStyle m_join;
+	CGFloat m_leadIn;
+	CGFloat m_spacing;
+	CGFloat m_angle;
+	CGFloat m_lineWidth;
+	BOOL m_angleRelativeToObject;
+	BOOL mRoughenStrokes;
+	CGFloat mRoughness;
+	CGFloat mWobblyness;
 }
 
 /** @brief Return the default hatching

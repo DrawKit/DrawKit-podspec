@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
@@ -126,10 +124,10 @@
  @param cache a cache used to save layout informaiton to avoid recalculation
  @return YES if all text was laid out, NO if some text was not laid out. */
 - (BOOL)layoutStringOnPath:(NSTextStorage*)str
-                   yOffset:(CGFloat)dy
-         usingLayoutHelper:(id)helperObject
-             layoutManager:(NSLayoutManager*)lm
-                     cache:(NSMutableDictionary*)cache;
+				   yOffset:(CGFloat)dy
+		 usingLayoutHelper:(id)helperObject
+			 layoutManager:(NSLayoutManager*)lm
+					 cache:(NSMutableDictionary*)cache;
 
 /** @brief Low level method adjusts text to fit the path length.
 
@@ -242,12 +240,12 @@
  @return A path. Stroking this path draws the underline.
  */
 - (NSBezierPath*)textLinePathWithMask:(NSInteger)mask
-                        startPosition:(CGFloat)sp
-                               length:(CGFloat)length
-                               offset:(CGFloat)offset
-                        lineThickness:(CGFloat)lineThickness
-                      descenderBreaks:(NSArray*)breaks
-                        grotThreshold:(CGFloat)gt;
+						startPosition:(CGFloat)sp
+							   length:(CGFloat)length
+							   offset:(CGFloat)offset
+						lineThickness:(CGFloat)lineThickness
+					  descenderBreaks:(NSArray*)breaks
+						grotThreshold:(CGFloat)gt;
 
 // getting text layout rects for running text within a shape
 
@@ -424,7 +422,7 @@
 // helper objects used internally when accumulating or laying glyphs
 
 @interface DKTextOnPathGlyphAccumulator : NSObject {
-    NSMutableArray* mGlyphs;
+	NSMutableArray* mGlyphs;
 }
 
 - (NSArray*)glyphs;
@@ -449,9 +447,9 @@
 // glyph run position and length along the line fragment rectangle is calculated.
 
 @interface DKTextOnPathMetricsHelper : NSObject {
-    CGFloat mStartPosition;
-    CGFloat mLength;
-    NSRange mCharacterRange;
+	CGFloat mStartPosition;
+	CGFloat mLength;
+	NSRange mCharacterRange;
 }
 
 - (void)setCharacterRange:(NSRange)range;
@@ -466,9 +464,9 @@
 // this is a small wrapper object used to cache information about locations on a path, to save recalculating them each time.
 
 @interface DKPathGlyphInfo : NSObject {
-    NSUInteger mGlyphIndex;
-    NSPoint mPoint;
-    CGFloat mSlope;
+	NSUInteger mGlyphIndex;
+	NSPoint mPoint;
+	CGFloat mSlope;
 }
 
 - (id)initWithGlyphIndex:(NSUInteger)glyphIndex position:(NSPoint)pt slope:(CGFloat)slope;

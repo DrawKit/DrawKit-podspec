@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawableObject.h"
 
@@ -14,29 +12,29 @@
 // editing modes:
 
 typedef enum {
-    kDKPathCreateModeEditExisting = 0, // normal operation - just move points on the existing path
-    kDKPathCreateModeLineCreate = 1, // create a straight line between two points
-    kDKPathCreateModeBezierCreate = 2, // create a curved path point by point
-    kDKPathCreateModePolygonCreate = 3, // create an irreglar polygon pont by point (multiple lines)
-    kDKPathCreateModeFreehandCreate = 4, // create a curve path by dragging freehand
-    kDKPathCreateModeArcSegment = 5, // create an arc section
-    kDKPathCreateModeWedgeSegment = 6 // create a wedge section
+	kDKPathCreateModeEditExisting = 0, // normal operation - just move points on the existing path
+	kDKPathCreateModeLineCreate = 1, // create a straight line between two points
+	kDKPathCreateModeBezierCreate = 2, // create a curved path point by point
+	kDKPathCreateModePolygonCreate = 3, // create an irreglar polygon pont by point (multiple lines)
+	kDKPathCreateModeFreehandCreate = 4, // create a curve path by dragging freehand
+	kDKPathCreateModeArcSegment = 5, // create an arc section
+	kDKPathCreateModeWedgeSegment = 6 // create a wedge section
 } DKDrawablePathCreationMode;
 
 typedef enum {
-    kDKPathNoJoin = 0,
-    kDKPathOtherPathWasAppended = 1,
-    kDKPathOtherPathWasPrepended = 2,
-    kDKPathBothEndsJoined = 3
+	kDKPathNoJoin = 0,
+	kDKPathOtherPathWasAppended = 1,
+	kDKPathOtherPathWasPrepended = 2,
+	kDKPathBothEndsJoined = 3
 } DKDrawablePathJoinResult;
 
 // path point types that can be passed to pathInsertPointAt:ofType:
 
 typedef enum {
-    kDKPathPointTypeAuto = 0, // insert whatever the hit element is already using
-    kDKPathPointTypeLine = 1, // insert a line segment
-    kDKPathPointTypeCurve = 2, // insert a curve segment
-    kDKPathPointTypeInverseAuto = 3, // insert the opposite of whatever hit element is already using
+	kDKPathPointTypeAuto = 0, // insert whatever the hit element is already using
+	kDKPathPointTypeLine = 1, // insert a line segment
+	kDKPathPointTypeCurve = 2, // insert a curve segment
+	kDKPathPointTypeInverseAuto = 3, // insert the opposite of whatever hit element is already using
 } DKDrawablePathInsertType;
 
 // the class:
@@ -48,13 +46,13 @@ DKDrawablePath is a drawable object that renders a path such as a line or curve 
 The path is rendered at its stored size, not transformed to its final size like DKDrawableShape. Thus this type of object doesn't
 maintain the concept of rotation or scale - it just is what it is.
 */
-@interface DKDrawablePath : DKDrawableObject <NSCoding, NSCopying> {
+@interface DKDrawablePath : DKDrawableObject <NSCoding, NSCopying, NSDraggingDestination> {
 @private
-    NSBezierPath* m_path;
-    NSBezierPath* m_undoPath;
-    NSInteger m_editPathMode;
-    CGFloat m_freehandEpsilon;
-    BOOL m_extending;
+	NSBezierPath* m_path;
+	NSBezierPath* m_undoPath;
+	NSInteger m_editPathMode;
+	CGFloat m_freehandEpsilon;
+	BOOL m_extending;
 }
 
 // convenience constructors:
@@ -149,6 +147,14 @@ maintain the concept of rotation or scale - it just is what it is.
 - (CGFloat)length;
 - (CGFloat)lengthForPoint:(NSPoint)mp;
 - (CGFloat)lengthForPoint:(NSPoint)mp tolerance:(CGFloat)tol;
+
+/** @brief Return the length to display to the user of a path
+ 
+ By default returns the same value as length. Override where the last path segment
+ length should be shown instead of the total path length.
+ @return the path's display length in points
+ */
+- (CGFloat)infoLengthForPath:(NSBezierPath*)path;
 
 /** @brief Discover whether the path is open or closed
 
@@ -441,7 +447,7 @@ maintain the concept of rotation or scale - it just is what it is.
 // special partcode value used to mean snap to the nearest point on the path itself:
 
 enum {
-    kDKSnapToNearestPathPointPartcode = -99
+	kDKSnapToNearestPathPointPartcode = -99
 };
 
 extern NSPoint gMouseForPathSnap;

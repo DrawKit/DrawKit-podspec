@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 #import "DKGradient.h"
@@ -32,12 +30,12 @@ as found in numerour apps, including Apple's own.
 @end
 
 typedef struct
-    {
-    CGFloat color[4];
-    CGFloat caustic[4];
-    CGFloat expCoefficient;
-    CGFloat expScale;
-    CGFloat expOffset;
-    CGFloat initialWhite;
-    CGFloat finalWhite;
+	{
+	CGFloat color[4];
+	CGFloat caustic[4];
+	CGFloat expCoefficient;
+	CGFloat expScale;
+	CGFloat expOffset;
+	CGFloat initialWhite;
+	CGFloat finalWhite;
 } GlossParameters;

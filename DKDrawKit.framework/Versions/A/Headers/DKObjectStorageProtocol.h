@@ -1,20 +1,18 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
 @protocol DKObjectStorage;
 
 typedef enum {
-    kDKReverseOrder = (1 << 0), // return objects in top to bottom order if set
-    kDKIncludeInvisible = (1 << 1), // includes invisible objects
-    kDKIgnoreUpdateRect = (1 << 2), // includes objects regardless of whether they are within the update region or not
-    kDKZOrderMayBeRelaxed = (1 << 3) // if set, the strict Z-ordering of objects may be relaxed if there is a performance benefit
+	kDKReverseOrder = (1 << 0), // return objects in top to bottom order if set
+	kDKIncludeInvisible = (1 << 1), // includes invisible objects
+	kDKIgnoreUpdateRect = (1 << 2), // includes objects regardless of whether they are within the update region or not
+	kDKZOrderMayBeRelaxed = (1 << 3) // if set, the strict Z-ordering of objects may be relaxed if there is a performance benefit
 } DKObjectStorageOptions;
 
 @protocol DKStorableObject <NSObject, NSCoding, NSCopying>

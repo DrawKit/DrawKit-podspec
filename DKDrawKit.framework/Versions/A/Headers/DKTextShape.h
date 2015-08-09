@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKDrawableShape.h"
 #import "DKCommonTypes.h"
@@ -30,16 +28,16 @@ Text shapes are shapes that draw text.
 */
 @interface DKTextShape : DKDrawableShape <NSCoding, NSCopying> {
 @private
-    DKTextAdornment* mTextAdornment; // handles the text storage, layout and rendering of the text
-    NSTextView* m_editorRef; // when editing, a reference to the editor view
-    BOOL mIsSettingStyle; // flags text being set by style
+	DKTextAdornment* mTextAdornment; // handles the text storage, layout and rendering of the text
+	NSTextView* m_editorRef; // when editing, a reference to the editor view
+	BOOL mIsSettingStyle; // flags text being set by style
 
 #ifdef DRAWKIT_DEPRECATED
-    NSTextStorage* m_text; // the text
-    NSRect m_textRect; // rect of the text relative to the final shape
-    DKVerticalTextAlignment m_vertAlign; // vertical text alignment
-    BOOL m_ignoreStyleAttributes; // YES to keep the text attributes distinct from style
-    CGFloat mVerticalAlignmentAmount; // value between 0..1 to set v align in prop mode
+	NSTextStorage* m_text; // the text
+	NSRect m_textRect; // rect of the text relative to the final shape
+	DKVerticalTextAlignment m_vertAlign; // vertical text alignment
+	BOOL m_ignoreStyleAttributes; // YES to keep the text attributes distinct from style
+	CGFloat mVerticalAlignmentAmount; // value between 0..1 to set v align in prop mode
 #endif
 }
 

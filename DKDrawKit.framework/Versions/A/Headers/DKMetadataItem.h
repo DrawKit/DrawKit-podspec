@@ -1,33 +1,31 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 
 // data types storable by a DKMetadataItem
 
 typedef enum {
-    DKMetadataTypeUnknown = -2,
-    DKMetadataMultipleTypesMarker = -1,
-    DKMetadataTypeString = 0,
-    DKMetadataTypeInteger = 1,
-    DKMetadataTypeReal = 2,
-    DKMetadataTypeBoolean = 3,
-    DKMetadataTypeUnsignedInt = 4,
-    DKMetadataTypeAttributedString = 5,
-    DKMetadataTypeImage = 6,
-    DKMetadataTypeImageData = 7,
-    DKMetadataTypeURL = 8,
-    DKMetadataTypeDate = 9,
-    DKMetadataTypeColour = 10,
-    DKMetadataTypeData = 11,
-    DKMetadataTypeSize = 12,
-    DKMetadataTypePoint = 13,
-    DKMetadataTypeRect = 14
+	DKMetadataTypeUnknown = -2,
+	DKMetadataMultipleTypesMarker = -1,
+	DKMetadataTypeString = 0,
+	DKMetadataTypeInteger = 1,
+	DKMetadataTypeReal = 2,
+	DKMetadataTypeBoolean = 3,
+	DKMetadataTypeUnsignedInt = 4,
+	DKMetadataTypeAttributedString = 5,
+	DKMetadataTypeImage = 6,
+	DKMetadataTypeImageData = 7,
+	DKMetadataTypeURL = 8,
+	DKMetadataTypeDate = 9,
+	DKMetadataTypeColour = 10,
+	DKMetadataTypeData = 11,
+	DKMetadataTypeSize = 12,
+	DKMetadataTypePoint = 13,
+	DKMetadataTypeRect = 14
 } DKMetadataType;
 
 /**
@@ -61,8 +59,8 @@ DKMetadataItems are used to store metadata (attribute) values in user info dicti
 */
 @interface DKMetadataItem : NSObject <NSCoding, NSCopying> {
 @private
-    id mValue;
-    DKMetadataType mType;
+	id mValue;
+	DKMetadataType mType;
 }
 
 + (Class)classForType:(DKMetadataType)type;
@@ -139,7 +137,9 @@ DKMetadataItems are used to store metadata (attribute) values in user info dicti
 - (NSString*)stringValue;
 - (NSAttributedString*)attributedStringValue;
 - (NSInteger)intValue;
+- (NSInteger)integerValue;
 - (CGFloat)floatValue;
+- (double)doubleValue;
 - (BOOL)boolValue;
 - (NSColor*)colourValue;
 - (NSSize)sizeValue;

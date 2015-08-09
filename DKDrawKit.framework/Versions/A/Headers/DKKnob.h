@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import <Cocoa/Cocoa.h>
 #import "DKCommonTypes.h"
@@ -12,8 +10,8 @@
 // visual flags, used internally
 
 typedef enum {
-    kDKKnobDrawsStroke = (1 << 0),
-    kDKKnobDrawsFill = (1 << 1)
+	kDKKnobDrawsStroke = (1 << 0),
+	kDKKnobDrawsFill = (1 << 1)
 } DKKnobDrawingFlags;
 
 @class DKHandle;
@@ -34,16 +32,16 @@ might include the shape of a knob, its colours, whether stroked or filled or bot
 */
 @interface DKKnob : NSObject <NSCoding, NSCopying> {
 @private
-    id m_ownerRef; // the object that owns (and hence retains) this - typically a DKLayer
-    NSSize m_knobSize; // the currently cached knob size
-    CGFloat mScaleRatio; // ratio to zoom factor used to scale knob size (default = 0.3)
-    NSColor* mControlKnobColour; // colour of square knobs
-    NSColor* mRotationKnobColour; // colour of rotation knobs
-    NSColor* mControlOnPathPointColour; // colour of on-path control points
-    NSColor* mControlOffPathPointColour; // colour of off-path control points
-    NSColor* mControlBarColour; // colour of control bars
-    NSSize mControlKnobSize; // control knob size
-    CGFloat mControlBarWidth; // control bar width
+	id m_ownerRef; // the object that owns (and hence retains) this - typically a DKLayer
+	NSSize m_knobSize; // the currently cached knob size
+	CGFloat mScaleRatio; // ratio to zoom factor used to scale knob size (default = 0.3)
+	NSColor* mControlKnobColour; // colour of square knobs
+	NSColor* mRotationKnobColour; // colour of rotation knobs
+	NSColor* mControlOnPathPointColour; // colour of on-path control points
+	NSColor* mControlOffPathPointColour; // colour of off-path control points
+	NSColor* mControlBarColour; // colour of control bars
+	NSSize mControlKnobSize; // control knob size
+	CGFloat mControlBarWidth; // control bar width
 }
 
 /**  */

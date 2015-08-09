@@ -1,18 +1,16 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKLayer.h"
 #import "DKMetadataItem.h"
 
 typedef enum {
-    kDKLayerMetadataOriginalSchema = 1,
-    kDKLayerMetadataCaseInsensitiveSchema = 2,
-    kDKLayerMetadata107Schema = 3
+	kDKLayerMetadataOriginalSchema = 1,
+	kDKLayerMetadataCaseInsensitiveSchema = 2,
+	kDKLayerMetadata107Schema = 3
 } DKLayerMetadataSchema;
 
 /** @brief adds some convenience methods for standard meta data attached to a graphic object.

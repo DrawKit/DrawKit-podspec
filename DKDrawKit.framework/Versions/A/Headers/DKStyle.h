@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKRastGroup.h"
 
@@ -13,17 +11,17 @@
 // swatch types that can be passed to -styleSwatchWithSize:type:
 
 typedef enum {
-    kDKStyleSwatchAutomatic = -1,
-    kDKStyleSwatchRectanglePath = 0,
-    kDKStyleSwatchCurvePath = 1
+	kDKStyleSwatchAutomatic = -1,
+	kDKStyleSwatchRectanglePath = 0,
+	kDKStyleSwatchCurvePath = 1
 } DKStyleSwatchType;
 
 // options that can be passed to -derivedStyleWithPasteboard:withOptions:
 
 typedef enum {
-    kDKDerivedStyleDefault = 0,
-    kDKDerivedStyleForPathHint = 1,
-    kDKDerivedStyleForShapeHint = 2
+	kDKDerivedStyleDefault = 0,
+	kDKDerivedStyleForPathHint = 1,
+	kDKDerivedStyleForShapeHint = 2
 } DKDerivedStyleOptions;
 
 #define STYLE_SWATCH_SIZE NSMakeSize(128.0, 128.0)
@@ -32,16 +30,16 @@ typedef enum {
 
 @interface DKStyle : DKRastGroup <NSCoding, NSCopying, NSMutableCopying> {
 @private
-    NSDictionary* m_textAttributes; // supports text additions
-    NSUndoManager* m_undoManagerRef; // style's undo manager
-    BOOL m_shared; // YES if the style is shared
-    BOOL m_locked; // YES if style can't be edited
-    id m_renderClientRef; // valid only while actually drawing
-    NSString* m_uniqueKey; // unique key, set once for all time
-    BOOL m_mergeFlag; // set to YES when a style is read in from a file and was saved in a registered state.
-    NSTimeInterval m_lastModTime; // timestamp to determine when styles have been updated
-    NSUInteger m_clientCount; // keeps count of the clients using the style
-    NSMutableDictionary* mSwatchCache; // cache of swatches at various sizes previously requested
+	NSDictionary* m_textAttributes; // supports text additions
+	NSUndoManager* m_undoManagerRef; // style's undo manager
+	BOOL m_shared; // YES if the style is shared
+	BOOL m_locked; // YES if style can't be edited
+	id m_renderClientRef; // valid only while actually drawing
+	NSString* m_uniqueKey; // unique key, set once for all time
+	BOOL m_mergeFlag; // set to YES when a style is read in from a file and was saved in a registered state.
+	NSTimeInterval m_lastModTime; // timestamp to determine when styles have been updated
+	NSUInteger m_clientCount; // keeps count of the clients using the style
+	NSMutableDictionary* mSwatchCache; // cache of swatches at various sizes previously requested
 }
 
 // basic standard styles:

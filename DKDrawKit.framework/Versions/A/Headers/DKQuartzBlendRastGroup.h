@@ -1,10 +1,8 @@
 /**
- @author Graham Cox, Apptree.net
- @author Graham Miln, miln.eu
- @author Contributions from the community
- @date 2005-2014
- @copyright This software is released subject to licensing conditions as detailed in DRAWKIT-LICENSING.TXT, which must accompany this source file.
- */
+ @author Contributions from the community; see CONTRIBUTORS.md
+ @date 2005-2015
+ @copyright MPL2; see LICENSE.txt
+*/
 
 #import "DKRastGroup.h"
 
@@ -13,9 +11,9 @@ Simple render group subclass that applies the set blend mode to the context for 
 yielding a wide range of available effects.
 */
 @interface DKQuartzBlendRastGroup : DKRastGroup <NSCoding, NSCopying> {
-    CGBlendMode m_blendMode;
-    CGFloat m_alpha;
-    NSImage* m_maskImage;
+	CGBlendMode m_blendMode;
+	CGFloat m_alpha;
+	NSImage* m_maskImage;
 }
 
 - (void)setBlendMode:(CGBlendMode)mode;
